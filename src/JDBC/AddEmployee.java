@@ -18,7 +18,7 @@ public static void main(String[] args) throws ClassNotFoundException {
 		{
 			System.out.println("Connected Successfully");
 		}
-		//First Part
+		
 		PreparedStatement ps=con.prepareStatement("insert into employee(empname,address,email,phonenumber,loc,qualification)values(?,?,?,?,?,?)returning eid");
 				
 		Scanner sc=new Scanner(System.in);
@@ -37,7 +37,7 @@ public static void main(String[] args) throws ClassNotFoundException {
 	
 			ResultSet rs=ps.executeQuery();
 				rs.next();
-				//Second part
+				
 				int empid=rs.getInt(1);
 				System.out.println("The generated employee id is:"+empid);
 				System.out.println("Enter number of work experience");
@@ -58,7 +58,7 @@ public static void main(String[] args) throws ClassNotFoundException {
 				}
 				ps1.executeBatch();
 	} catch (SQLException e) {
-		// TODO Auto-generated catch block
+		
 		e.printStackTrace();
 	}finally {
 		if(con!=null) {
